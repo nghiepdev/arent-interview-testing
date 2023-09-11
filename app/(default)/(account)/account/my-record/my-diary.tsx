@@ -4,8 +4,10 @@ import {Button} from '@/components/ui';
 export default function MyDiary() {
   return (
     <div id="my-diary" className="container">
-      <h2 className="text-xl font-medium uppercase text-dark-500">My Diary</h2>
-      <section className="mt-1 grid gap-x-3 gap-y-3 grid-fill-[231px]">
+      <h2 className="px-2 text-xl font-medium uppercase text-dark-500 sm:px-0">
+        My Diary
+      </h2>
+      <section className="mt-1 grid gap-x-3 gap-y-3 px-2 grid-fill-[231px] sm:px-0">
         {Array.from({length: 8}).map((_, index) => (
           <Diary
             key={index}

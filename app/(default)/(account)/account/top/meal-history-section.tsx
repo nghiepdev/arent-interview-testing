@@ -4,7 +4,7 @@ import {Button} from '@/components/ui';
 export default function MealHistorySecton() {
   return (
     <div className="container">
-      <section className="grid gap-2 grid-fill-[234px]">
+      <section className="grid gap-2 px-2 grid-fill-[234px] sm:px-0">
         {Array.from({length: 8}).map((_, index) => (
           <MealHistory
             key={index}

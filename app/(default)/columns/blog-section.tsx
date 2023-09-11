@@ -6,7 +6,7 @@ import {Button} from '@/components/ui';
 export default function BlogSecton() {
   return (
     <div className="container">
-      <section className="grid gap-x-2 gap-y-5 grid-fill-[234px]">
+      <section className="grid gap-x-2 gap-y-5 px-2 grid-fill-[234px] sm:px-0">
         {Array.from({length: 8}).map((_, index) => (
           <Blog
             key={index}
