@@ -20,8 +20,8 @@ export default function Nav() {
         )}
       >
         <Link
-          href="/account/records"
-          data-active={segments[1] === 'account' && segments[2] === 'records'}
+          href="/account/my-record"
+          data-active={segments[1] === 'account' && segments[2] === 'my-record'}
         >
           <img src="/icons/icon_memo.svg" alt="" />
           <span>自分の記録</span>

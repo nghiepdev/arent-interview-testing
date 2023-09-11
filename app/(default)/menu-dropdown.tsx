@@ -41,9 +41,9 @@ export default function MenuDropdown() {
               )}
             >
               <Link
-                href="/account/records"
+                href="/account/my-record"
                 data-active={
-                  segments[1] === 'account' && segments[2] === 'records'
+                  segments[1] === 'account' && segments[2] === 'my-record'
                 }
               >
                 自分の記録
