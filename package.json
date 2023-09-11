@@ -15,17 +15,34 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "next": "13.4.19",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
     "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
     "autoprefixer": "10.4.15",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
-    "next": "13.4.19",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "postcss": "8.4.29",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.4",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "bracketSpacing": false,
+    "arrowParens": "avoid",
+    "endOfLine": "auto",
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ]
   }
 }
