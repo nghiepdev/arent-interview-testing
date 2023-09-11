@@ -37,7 +37,7 @@ export default function PercentCircle({
   useInterval(
     () => {
       setValue(value =>
-        Math.min(value + Math.floor(randomArbitrary(1, 4)), progress),
+        Math.min(value + Math.floor(randomArbitrary(1, 5)), progress),
       );
     },
     value >= progress ? null : 50,
