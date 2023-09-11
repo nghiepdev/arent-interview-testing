@@ -2,6 +2,12 @@
   "name": "arent-interview",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://arent-interview.vercel.app",
+  "description": "A web application for health care.",
+  "engines": {
+    "node": "16.13.1",
+    "npm": "^6.14.15"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
