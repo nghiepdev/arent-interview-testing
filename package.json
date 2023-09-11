@@ -48,5 +48,11 @@
     "plugins": [
       "prettier-plugin-tailwindcss"
     ]
-  }
+  },
+  "repository": {
+    "type": "git+ssh",
+    "url": "git@github.com:nghiepdev/arent-interview.git"
+  },
+  "author": "Nghiep <me@nghiep.dev>",
+  "license": "UNLICENSED"
 }

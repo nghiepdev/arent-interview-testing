@@ -4,6 +4,20 @@ const nextConfig = {
     typedRoutes: true,
   },
 
+  headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Author',
+            value: require('./package.json').author,
+          },
+        ],
+      },
+    ];
+  },
+
   async rewrites() {
     return [
       {
