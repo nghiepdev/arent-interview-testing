@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 
+import {BackToTop} from '@/components/misc';
+
 import MenuDropdown from './menu-dropdown';
 import Nav from './nav';
 
@@ -56,6 +58,7 @@ export default function DefaultLayout({children}: AppLayoutProps) {
           </div>
         </footer>
       </div>
+      <BackToTop className="fixed bottom-40 right-10 z-[99999] lg:right-24 lg:top-1/2 lg:-translate-y-1/2" />
     </>
   );
 }
