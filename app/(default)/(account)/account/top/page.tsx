@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 
 import AchievementRate from './achievement-rate';
+import MealHistorySection from './meal-history-section';
 import Transit from './transit';
 
 export const metadata: Metadata = {
@@ -12,6 +13,7 @@ export default function Top() {
     <div className="space-y-7 pb-7">
       <AchievementRate />
       <Transit />
+      <MealHistorySection />
     </div>
   );
 }
