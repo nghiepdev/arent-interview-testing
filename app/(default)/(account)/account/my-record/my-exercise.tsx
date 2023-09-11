@@ -17,7 +17,7 @@ export default function MyExercise() {
           {dayjs('2021-05-21').format('YYYY.MM.DD')}
         </time>
       </h2>
-      <div className="mt-2 h-[192px] overflow-y-auto pr-4 supports-[overflow:overlay]:[overflow-y:overlay]">
+      <div className="mt-2 h-[192px] overflow-y-auto pr-4 scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-primary-300 scrollbar-track-rounded-xl scrollbar-thumb-rounded-xl supports-[overflow:overlay]:[overflow-y:overlay]">
         <div className="gap-9 sm:columns-2">
           {Array.from({length: 8 * 4}).map((_, index) => (
             <Exercise

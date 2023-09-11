@@ -44,6 +44,7 @@ const config: Config = {
   plugins: [
     require('@tailwindcss/aspect-ratio'),
     require('tailwind-scrollbar-hide'),
+    require('tailwind-scrollbar')({nocompatible: true}),
     plugin(({matchUtilities}) => {
       matchUtilities({
         'grid-fill': min => ({
