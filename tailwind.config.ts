@@ -1,5 +1,6 @@
 import type {Config} from 'tailwindcss';
 import defaultTheme from 'tailwindcss/defaultTheme';
+import plugin from 'tailwindcss/plugin';
 
 const config: Config = {
   darkMode: 'class',
@@ -43,6 +44,13 @@ const config: Config = {
   plugins: [
     require('@tailwindcss/aspect-ratio'),
     require('tailwind-scrollbar-hide'),
+    plugin(({matchUtilities}) => {
+      matchUtilities({
+        'grid-fill': min => ({
+          'grid-template-columns': `repeat(auto-fill, minmax(${min}, 1fr))`,
+        }),
+      });
+    }),
   ],
 };
 
