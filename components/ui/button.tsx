@@ -5,6 +5,7 @@ interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   rounded?: 'sm' | 'md' | 'lg' | 'full';
   size?: 'xs' | 'sm' | 'md' | 'lg';
   color?: 'default' | 'primary' | 'light' | 'gradient';
+  fullWidth?: boolean;
 }
 
 export default function Button({
@@ -13,6 +14,7 @@ export default function Button({
   rounded = 'md',
   size = 'md',
   color = 'default',
+  fullWidth,
   ...restProps
 }: ButtonProps) {
   return (
@@ -23,7 +25,7 @@ export default function Button({
         'flex items-center justify-center gap-1.5 opacity-90 transition-all',
         {
           'bg-gray-400 text-light': color === 'default',
-          'bg-primary-300 text-light': color === 'primary',
+          'bg-primary-400 text-light': color === 'primary',
           'bg-light text-primary-300': color === 'light',
           'bg-primary-gradient text-light': color === 'gradient',
           'rounded-sm': rounded === 'sm',
@@ -32,10 +34,13 @@ export default function Button({
           'rounded-full': rounded === 'full',
           'h-6 px-5 text-xs': size === 'xs',
           'h-8 px-6 text-base': size === 'sm',
-          'text-md h-12 px-8': size === 'md',
+          'text-md h-10 px-8': size === 'md',
           'h-[56px] px-10 text-lg': size === 'lg',
         },
         'hover:opacity-100',
+        {
+          'w-full': fullWidth,
+        },
       )}
     >
       {loading && (
