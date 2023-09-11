@@ -1,4 +1,17 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  experimental: {
+    typedRoutes: true,
+  },
 
-module.exports = nextConfig
+  async rewrites() {
+    return [
+      {
+        source: '/',
+        destination: '/account/top',
+      },
+    ];
+  },
+};
+
+module.exports = nextConfig;
