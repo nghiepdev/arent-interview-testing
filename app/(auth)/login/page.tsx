@@ -20,9 +20,9 @@ export default function Login() {
     startTransition(async () => {
       try {
         await loginAction(values);
-      } catch (error) {
+      } catch {
         setError('root', {
-          message: error instanceof Error ? error.message : 'Unknown error',
+          message: 'Username or password is incorrect',
         });
         setFocus('username');
       }
@@ -44,6 +44,7 @@ export default function Login() {
           placeholder="arent"
           className="ring-gray-300 block w-full rounded-md border-0 px-2 py-2 shadow-sm ring-1 ring-inset"
           autoComplete="off"
+          autoFocus
           {...register('username', {
             required: 'Username field is required',
           })}

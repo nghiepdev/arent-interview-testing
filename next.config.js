@@ -25,6 +25,10 @@ const nextConfig = {
         source: '/',
         destination: '/account/top',
       },
+      {
+        source: '/logout',
+        destination: '/api/logout',
+      },
     ];
   },
 };
