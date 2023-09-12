@@ -2,11 +2,14 @@
 
 import type {EChartsOption} from 'echarts';
 import ReactECharts from 'echarts-for-react';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import {useMemo} from 'react';
+import {Suspense, useMemo} from 'react';
+import {ErrorBoundary} from 'react-error-boundary';
 
-import {PercentCircle} from '@/components/ui';
 import mainPhoto from '@/public/photos/main_photo.png';
+
+const Rate = dynamic(() => import('./rate'), {ssr: false});
 
 export default function AchievementRate() {
   const chartOptions = useMemo<EChartsOption>(() => {
@@ -88,26 +91,11 @@ export default function AchievementRate() {
           className="h-full w-full object-cover"
         />
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <PercentCircle
-            size={181 + 20}
-            progress={75}
-            circleColor="transparent"
-            progressColor="white"
-            progressShape="square"
-            progressWidth={3}
-            filter="drop-shadow(0px 0px 1px red)"
-            renderText={progress => (
-              <div
-                className="whitespace-nowrap text-light"
-                style={{
-                  textShadow: '0px 0px 6px #FCA500',
-                }}
-              >
-                <span className="text-lg">05/21</span>{' '}
-                <span className="text-2xl">{progress}%</span>
-              </div>
-            )}
-          />
+          <ErrorBoundary fallback={null}>
+            <Suspense fallback={<div>loading...</div>}>
+              <Rate />
+            </Suspense>
+          </ErrorBoundary>
         </div>
       </section>
       <section className="h-[316px] grow overflow-hidden bg-dark-600">
