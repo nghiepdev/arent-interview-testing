@@ -1,3 +1,12 @@
+import {decode} from 'js-base64';
+import {cookies} from 'next/headers';
+import {redirect} from 'next/navigation';
+
 export default function ProtectedLayout({children}: AppLayoutProps) {
-  return <>{children}</>;
+  const accessToken = cookies().get('access_token')?.value;
+  if (accessToken && decode(accessToken).includes('arent')) {
+    return <>{children}</>;
+  }
+
+  redirect('/login');
 }

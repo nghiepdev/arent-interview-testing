@@ -11,7 +11,9 @@ export async function loginAction(values: Credentials) {
   await new Promise(r => setTimeout(r, 500));
 
   if (values.username === 'arent' && values.password === 'arent') {
-    cookies().set('access_token', encode(values.username), {
+    cookies().set({
+      name: 'access_token',
+      value: encode(values.username),
       path: '/',
       httpOnly: true,
       expires: dayjs().add(1, 'year').toDate(),

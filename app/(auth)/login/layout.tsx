@@ -1,8 +1,16 @@
+import {decode} from 'js-base64';
+import {cookies} from 'next/headers';
 import Link from 'next/link';
+import {redirect} from 'next/navigation';
 
 import {Alert} from '@/components/ui';
 
 export default function LoginLayout({children}: AppLayoutProps) {
+  const accessToken = cookies().get('access_token')?.value;
+  if (accessToken && decode(accessToken).includes('arent')) {
+    redirect('/');
+  }
+
   return (
     <div className="flex min-h-screen items-center justify-center">
       <main className="w-[440px] max-w-full px-2 sm:px-5">
