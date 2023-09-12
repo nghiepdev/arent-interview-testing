@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 
+import {noop} from '@/lib/misc';
+
 interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   loading?: boolean;
   rounded?: 'sm' | 'md' | 'lg' | 'full';
@@ -20,6 +22,8 @@ export default function Button({
   return (
     <button
       {...restProps}
+      type={loading ? 'button' : restProps.type}
+      onClick={loading ? noop : restProps.onClick}
       className={clsx(
         restProps.className,
         'flex items-center justify-center gap-1.5 opacity-90 transition-all',
@@ -40,6 +44,7 @@ export default function Button({
         'hover:opacity-100',
         {
           'w-full': fullWidth,
+          'bg-opacity-70': loading,
         },
       )}
     >
