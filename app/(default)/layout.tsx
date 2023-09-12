@@ -58,7 +58,7 @@ export default function DefaultLayout({children}: AppLayoutProps) {
           </div>
         </footer>
       </div>
-      <BackToTop className="fixed bottom-40 right-10 z-[99999] lg:right-24 lg:top-1/2 lg:-translate-y-1/2" />
+      <BackToTop className="fixed bottom-40 right-10 z-[99999] h-[48px] lg:right-24 lg:top-1/2 lg:-translate-y-1/2" />
     </>
   );
 }

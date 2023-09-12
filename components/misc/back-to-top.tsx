@@ -33,7 +33,7 @@ export default function BackToTop(props: BackToTopProps) {
       {...props}
       className={clsx(props.className, 'transition', {
         'opacity-100': show,
-        'opacity-0': !show,
+        'invisible opacity-0': !show,
       })}
       onClick={handleToTop}
     >
