@@ -1,19 +1,32 @@
 'use client';
 
+import {useTransition} from 'react';
 import {type SubmitHandler, useForm} from 'react-hook-form';
 
+import {loginAction} from '@/actions/login';
 import {Button} from '@/components/ui';
-
-interface FormValues {
-  username: string;
-  password: string;
-}
+import type {Credentials} from '@/lib/auth';
 
 export default function Login() {
-  const {handleSubmit, register, formState} = useForm<FormValues>();
+  const [isSubmiting, startTransition] = useTransition();
 
-  const onSubmit: SubmitHandler<FormValues> = values => {
-    console.log(values);
+  const {handleSubmit, register, formState, setError, setFocus} =
+    useForm<Credentials>();
+
+  const onSubmit: SubmitHandler<Credentials> = values => {
+    if (isSubmiting) {
+      return;
+    }
+    startTransition(async () => {
+      try {
+        await loginAction(values);
+      } catch (error) {
+        setError('root', {
+          message: error instanceof Error ? error.message : 'Unknown error',
+        });
+        setFocus('username');
+      }
+    });
   };
 
   return (
@@ -64,11 +77,18 @@ export default function Login() {
           </div>
         )}
       </div>
+      {formState.errors.root && (
+        <div className="mt-4 rounded-md border border-primary-500 bg-primary-500/10 p-2 text-primary-500">
+          <span className="font-medium">Error: </span>{' '}
+          {formState.errors.root.message}
+        </div>
+      )}
       <Button
         type="submit"
         fullWidth
         color="primary"
         className="mt-5 font-medium"
+        loading={isSubmiting}
       >
         Sign In
       </Button>
