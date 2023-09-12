@@ -18,7 +18,7 @@ export async function loginAction(values: Credentials) {
       httpOnly: true,
       expires: dayjs().add(1, 'year').toDate(),
     });
-    redirect('/');
+    redirect('/account/top');
   }
 
   throw new Error('Username or password is incorrect');

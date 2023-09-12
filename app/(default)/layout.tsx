@@ -13,7 +13,7 @@ export default function DefaultLayout({children}: AppLayoutProps) {
         <header className="h-[64px] shrink-0 bg-dark-500 text-light">
           <div className="container h-full">
             <div className="flex h-full">
-              <Link href="/" className="shrink-0 self-center">
+              <Link href="/account/top" className="shrink-0 self-center">
                 <img
                   src="/logo.svg"
                   alt="logo"

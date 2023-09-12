@@ -8,14 +8,14 @@ import {Alert} from '@/components/ui';
 export default function LoginLayout({children}: AppLayoutProps) {
   const accessToken = cookies().get('access_token')?.value;
   if (accessToken && decode(accessToken).includes('arent')) {
-    redirect('/');
+    redirect('/account/top');
   }
 
   return (
     <div className="flex min-h-screen items-center justify-center">
       <main className="w-[440px] max-w-full px-2 sm:px-5">
         <div className="flex justify-center">
-          <Link href="/">
+          <Link href="/account/top">
             <img src="/logo.svg" alt="" className="h-12" />
           </Link>
         </div>
