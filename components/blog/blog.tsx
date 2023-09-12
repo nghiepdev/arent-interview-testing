@@ -9,12 +9,7 @@ interface BlogProps {
 
 export default function Blog({title, image, date, tags}: BlogProps) {
   return (
-    <a
-      href="/"
-      role="link"
-      aria-label={title}
-      className="group w-full space-y-2"
-    >
+    <a href="#" aria-label={title} className="group w-full space-y-2">
       <div className="relative aspect-[5/3] w-full">
         <img src={image} alt={title} className="h-full w-full object-cover" />
         <time className="absolute bottom-0 left-0 block bg-primary-300 px-1.5 text-base text-light">

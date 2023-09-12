@@ -36,12 +36,18 @@ const nextConfig = {
     ];
   },
 
-  async rewrites() {
+  async redirects() {
     return [
       {
         source: '/',
         destination: '/account/top',
+        permanent: false,
       },
+    ];
+  },
+
+  async rewrites() {
+    return [
       {
         source: '/logout',
         destination: '/api/logout',
