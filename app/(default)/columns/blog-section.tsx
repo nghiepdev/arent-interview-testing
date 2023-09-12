@@ -1,31 +1,52 @@
-import dayjs from 'dayjs';
+'use client';
 
-import {Blog} from '@/components/blog';
-import {Button} from '@/components/ui';
+import {useEffect, useRef} from 'react';
+
+import {Blog, type BlogType} from '@/components/blog';
+import {BlogSkeleton} from '@/components/skeleton';
+import {Alert, Button} from '@/components/ui';
+import {useFetchMore} from '@/lib/use-fetch-more';
 
 export default function BlogSecton() {
+  const [blogs, {state, page, shouldNext, initialLoading, fetchMore}] =
+    useFetchMore<BlogType>('/v1/column/blogs');
+
+  const lastRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    if (page > 1 && (state === 'success' || state === 'done')) {
+      lastRef.current?.scrollIntoView({behavior: 'smooth'});
+    }
+  }, [page, state]);
+
   return (
     <div className="container">
       <section className="grid gap-x-2 gap-y-5 px-2 grid-fill-[234px] sm:px-0">
-        {Array.from({length: 8}).map((_, index) => (
-          <Blog
-            key={index}
-            title="魚を食べて頭もカラダも元気に！知っておきたい魚を食べるメリ…"
-            image="/photos/column-6.jpg"
-            date={dayjs().subtract(2, 'day').toISOString()}
-            tags={['魚料理', '和食  DHA', 'DHA']}
-          />
-        ))}
+        {initialLoading
+          ? Array.from({length: 8}).map((_, index) => (
+              <BlogSkeleton key={index} />
+            ))
+          : blogs.map((blog, index) => (
+              <Blog key={index} ref={lastRef} {...blog} />
+            ))}
       </section>
       <div className="mt-7 flex justify-center">
-        <Button
-          color="gradient"
-          rounded="md"
-          size="lg"
-          className="min-w-[296px]"
-        >
-          コラムをもっと見る
-        </Button>
+        {state === 'error' ? (
+          <Alert>Sorry, Someting went wrong. Please try again</Alert>
+        ) : (
+          shouldNext && (
+            <Button
+              color="gradient"
+              rounded="md"
+              size="lg"
+              className="min-w-[296px]"
+              loading={state === 'loading'}
+              onClick={() => fetchMore()}
+            >
+              コラムをもっと見る
+            </Button>
+          )
+        )}
       </div>
     </div>
   );

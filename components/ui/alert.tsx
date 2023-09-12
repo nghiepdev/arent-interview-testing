@@ -1,8 +1,17 @@
-interface AlertProps extends React.PropsWithChildren {}
+import clsx from 'clsx';
 
-export default function Alert({children}: AlertProps) {
+interface AlertProps extends React.PropsWithChildren {
+  color?: 'primary' | 'light';
+}
+
+export default function Alert({children, color = 'primary'}: AlertProps) {
   return (
-    <div className="rounded-md bg-primary-300 p-4 text-light">
+    <div
+      className={clsx('w-full rounded-md p-4 text-light', {
+        'bg-primary-400': color === 'primary',
+        'bg-primary-300': color === 'light',
+      })}
+    >
       <div className="flex">
         <div className="flex-shrink-0">
           <svg

@@ -1,16 +1,22 @@
 import dayjs from 'dayjs';
+import {forwardRef} from 'react';
 
-interface BlogProps {
+export interface BlogType {
   title: string;
   image: string;
   date: string;
   tags?: string[];
 }
 
-export default function Blog({title, image, date, tags}: BlogProps) {
+interface BlogProps extends BlogType {}
+
+const Blog = forwardRef<HTMLAnchorElement, BlogProps>(function BlogImpl(
+  {title, image, date, tags},
+  ref,
+) {
   return (
-    <a href="#" aria-label={title} className="group w-full space-y-2">
-      <div className="relative aspect-[5/3] w-full">
+    <a ref={ref} href="#" aria-label={title} className="group w-full space-y-2">
+      <div className="relative aspect-[5/3] w-full bg-primary-300/20">
         <img src={image} alt={title} className="h-full w-full object-cover" />
         <time className="absolute bottom-0 left-0 block bg-primary-300 px-1.5 text-base text-light">
           {dayjs(date).format('YYYY.MM.DD')}{' '}
@@ -31,4 +37,6 @@ export default function Blog({title, image, date, tags}: BlogProps) {
       )}
     </a>
   );
-}
+});
+
+export default Blog;

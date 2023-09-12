@@ -5,7 +5,7 @@ import ReactECharts from 'echarts-for-react';
 import {useEffect, useMemo} from 'react';
 import {suspend} from 'suspend-react';
 
-import {apiCaller} from '@/lib/apiCaller';
+import {apiCaller} from '@/lib/api-caller';
 import type {Period} from '@/lib/typings';
 
 interface GraphProps {

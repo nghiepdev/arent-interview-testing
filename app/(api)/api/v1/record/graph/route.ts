@@ -11,11 +11,13 @@ const mockData = [
 ];
 
 export async function GET(request: NextRequest) {
-  // Fake delay
-  await new Promise(r => setTimeout(r, randomArbitrary(300, 700)));
-
   const period = (request.nextUrl.searchParams.get('period') ||
     'year') as Period;
+
+  if (period === 'year') {
+    // Fake delay
+    await new Promise(r => setTimeout(r, randomArbitrary(300, 500)));
+  }
 
   return NextResponse.json({
     date: dayjs('2021-05-21').toISOString(),

@@ -24,7 +24,7 @@ export default function LoginLayout({children}: AppLayoutProps) {
         </h1>
         <div className="mt-8">{children}</div>
         <div className="my-4 h-px bg-dark-500/10"></div>
-        <Alert>
+        <Alert color="light">
           <div className="font-semibold">
             For demo testing purposes, please use the account test{' '}
             <span className="italic text-dark-500 underline">arent</span>/

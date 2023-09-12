@@ -4,7 +4,7 @@ import {useEffect} from 'react';
 import {suspend} from 'suspend-react';
 
 import {Exercise} from '@/components/exercise';
-import {apiCaller} from '@/lib/apiCaller';
+import {apiCaller} from '@/lib/api-caller';
 
 interface MyExerciseProps {
   onDateChange: (date: string) => void;

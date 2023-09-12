@@ -5,7 +5,7 @@ import ReactECharts from 'echarts-for-react';
 import {useMemo} from 'react';
 import {suspend} from 'suspend-react';
 
-import {apiCaller} from '@/lib/apiCaller';
+import {apiCaller} from '@/lib/api-caller';
 
 export default function Graph() {
   const {category, data: chartData} = suspend(async () => {

@@ -1,14 +1,23 @@
 import dayjs from 'dayjs';
+import {forwardRef} from 'react';
 
-interface DiaryProps {
+export interface DiaryType {
   title: string;
   date: string;
   content: string;
 }
 
-export default function Diary({title, date, content}: DiaryProps) {
+interface DiaryProps extends DiaryType {}
+
+const Diary = forwardRef<HTMLDetailsElement, DiaryProps>(function DiaryImpl(
+  {title, date, content},
+  ref,
+) {
   return (
-    <article className="w-full border-2 border-[#707070] px-4 py-4 text-dark-500 md:aspect-1">
+    <article
+      ref={ref}
+      className="w-full border-2 border-[#707070] px-4 py-4 text-dark-500 md:aspect-1"
+    >
       <time dateTime={date} className="text-lg font-medium leading-4">
         {dayjs(date).format('YYYY.MM.DD')}
         <br />
@@ -18,4 +27,6 @@ export default function Diary({title, date, content}: DiaryProps) {
       <div className="line-clamp-5 text-xs leading-5">{content}</div>
     </article>
   );
-}
+});
+
+export default Diary;

@@ -10,7 +10,7 @@ const mockData = [
 
 export async function GET() {
   // Fake delay
-  await new Promise(r => setTimeout(r, randomArbitrary(300, 700)));
+  await new Promise(r => setTimeout(r, randomArbitrary(300, 500)));
 
   return NextResponse.json({
     category,

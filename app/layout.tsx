@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     default: 'Healthy',
     template: '%s | Healthy',
   },
-  description: 'A web application for health care.',
+  description: 'Your healthy life grow here.',
   themeColor: [
     {
       media: '(prefers-color-scheme: light)',

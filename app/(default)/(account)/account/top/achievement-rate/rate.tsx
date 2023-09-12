@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import {suspend} from 'suspend-react';
 
 import {PercentCircle} from '@/components/ui';
-import {apiCaller} from '@/lib/apiCaller';
+import {apiCaller} from '@/lib/api-caller';
 
 export default function Rate() {
   const {rate, date} = suspend(async () => {

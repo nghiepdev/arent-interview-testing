@@ -43,10 +43,10 @@ export default function Button({
           'text-md h-10 px-8': size === 'md',
           'h-[56px] px-10 text-lg': size === 'lg',
         },
-        'hover:opacity-100',
         {
           'w-full': fullWidth,
-          'bg-opacity-70': loading,
+          'cursor-default bg-opacity-70 opacity-60': loading,
+          'hover:opacity-100': !loading,
         },
       )}
     >
