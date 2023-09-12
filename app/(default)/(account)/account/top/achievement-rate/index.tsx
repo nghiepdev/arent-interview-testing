@@ -24,7 +24,7 @@ export default function AchievementRate() {
           className="h-full w-full object-cover"
         />
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <ErrorBoundary fallback={null}>
+          <ErrorBoundary fallback={<span />}>
             <Suspense fallback={<Spinner className="text-light" />}>
               <NoSSR>
                 <Rate />
@@ -34,7 +34,7 @@ export default function AchievementRate() {
         </div>
       </section>
       <section className="h-[316px] grow overflow-hidden bg-dark-600">
-        <ErrorBoundary fallback={null}>
+        <ErrorBoundary fallback={<span />}>
           <Suspense
             fallback={
               <div className="flex h-full items-center justify-center">
