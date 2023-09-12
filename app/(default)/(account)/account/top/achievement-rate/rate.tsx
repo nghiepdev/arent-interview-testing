@@ -12,7 +12,7 @@ export default function Rate() {
       '/v1/top/rate',
     );
     return data;
-  }, []);
+  }, ['top', 'rate']);
 
   return (
     <PercentCircle
