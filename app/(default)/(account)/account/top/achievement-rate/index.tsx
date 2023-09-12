@@ -2,14 +2,15 @@
 
 import type {EChartsOption} from 'echarts';
 import ReactECharts from 'echarts-for-react';
-import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import {Suspense, useMemo} from 'react';
+import {lazy, Suspense, useMemo} from 'react';
 import {ErrorBoundary} from 'react-error-boundary';
 
+import {NoSSR} from '@/components/misc';
+import {Spinner} from '@/components/ui';
 import mainPhoto from '@/public/photos/main_photo.png';
 
-const Rate = dynamic(() => import('./rate'), {ssr: false});
+const Rate = lazy(() => import('./rate'));
 
 export default function AchievementRate() {
   const chartOptions = useMemo<EChartsOption>(() => {
@@ -92,8 +93,10 @@ export default function AchievementRate() {
         />
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <ErrorBoundary fallback={null}>
-            <Suspense fallback={<div>loading...</div>}>
-              <Rate />
+            <Suspense fallback={<Spinner className="text-light" />}>
+              <NoSSR>
+                <Rate />
+              </NoSSR>
             </Suspense>
           </ErrorBoundary>
         </div>
