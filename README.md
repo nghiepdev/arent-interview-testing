@@ -2,6 +2,10 @@
 
 > A web application for health care. https://arent-interview.vercel.app
 
+## Video demo
+
+[![Video demo](https://i.ytimg.com/vi/MVgHSQEheW8/hqdefault.jpg)](https://youtu.be/MVgHSQEheW8)
+
 ## Getting Started
 
 First, run the development server:
@@ -26,16 +30,16 @@ TODO
 
 ## Highlight (out of scope)
 
-| Component          | Description                                                  | Screenshot |
-| :----------------- | :----------------------------------------------------------- | :--------: |
-| Percentage         | Support dynamic value and animation                          |    TODO    |
-| Hexagon            | Support dynamic size                                         |    TODO    |
-| Beautify Chart     | Dynamic chart, tooltip, period                               |    TODO    |
-| Responsive         | Ensure that all pages are mobile-friendly                    |    TODO    |
-| Load more          | Support load more                                            |    TODO    |
-| Skeleton           | A skeleton screen is an animated placeholder                 |    TODO    |
-| Sign-in `/sign-in` | To successfully log in, use the account test `arent`/`arent` |    TODO    |
-| Logout `/logout`   | Helpful to retest `/sign-in` functionality                   |    TODO    |
+| Component          | Description                                                  |                             Screenshot                              |
+| :----------------- | :----------------------------------------------------------- | :-----------------------------------------------------------------: |
+| Percentage         | Support dynamic value and animation                          |        <img src="public/screenshots/rate.gif" width="150"/>         |
+| Hexagon            | Support dynamic size                                         |       <img src="public/screenshots/hexagon.gif" width="150"/>       |
+| Beautify Chart     | Dynamic chart, tooltip, period                               |        <img src="public/screenshots/graph.gif" width="150"/>        |
+| Responsive         | Ensure that all pages are mobile-friendly                    |    [View](https://youtu.be/MVgHSQEheW8?si=RHjEwbtZFTGSDRl2&t=95)    |
+| Load more          | Support load more                                            |    [View](https://youtu.be/MVgHSQEheW8?si=RHjEwbtZFTGSDRl2&t=36)    |
+| Skeleton           | A skeleton screen is an animated placeholder                 |      <img src="public/screenshots/skeleton.gif" width="150"/>       |
+| Sign-in `/sign-in` | To successfully log in, use the account test `arent`/`arent` | <img src="public/screenshots/sign_in.png" width="150" height="80"/> |
+| Logout `/logout`   | Helpful to retest `/sign-in` functionality                   |                                                                     |
 
 ## Tech stack
 
@@ -46,9 +50,9 @@ TODO
 - React Server Components
 - CI/CD for deploy and check code quality (ESLint + Typescript)
 
-# Screenshot
+# Screenshots
 
-TODO
+<img src="public/screenshots/sign_in.png" height="100"/><img src="public/screenshots/top.png" height="100"/><img src="public/screenshots/record.png" height="100"/><img src="public/screenshots/column.png" height="100"/>
 
 ## License
 
