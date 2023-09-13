@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
         : mockData.map(group =>
             group.map((item, index) => {
               if (index > 0) {
-                return item + randomArbitrary(-20, 20);
+                return item + Math.round(randomArbitrary(-20, 20));
               }
               return item;
             }),

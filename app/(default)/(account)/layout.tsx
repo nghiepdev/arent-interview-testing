@@ -8,5 +8,5 @@ export default function ProtectedLayout({children}: AppLayoutProps) {
     return <>{children}</>;
   }
 
-  redirect('/login');
+  redirect('/sign-in');
 }

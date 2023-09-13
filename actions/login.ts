@@ -7,7 +7,10 @@ import {redirect} from 'next/navigation';
 
 import type {Credentials} from '@/lib/auth';
 
-export async function loginAction(values: Credentials) {
+export async function loginAction(
+  values: Credentials,
+): Promise<void | {error: true; message: string}> {
+  // Fake delay
   await new Promise(r => setTimeout(r, 500));
 
   if (values.username === 'arent' && values.password === 'arent') {
@@ -21,5 +24,8 @@ export async function loginAction(values: Credentials) {
     redirect('/account/top');
   }
 
-  throw new Error('Username or password is incorrect');
+  return {
+    error: true as const,
+    message: 'Username or password is incorrect.',
+  };
 }

@@ -3,5 +3,5 @@ import {redirect} from 'next/navigation';
 
 export async function GET() {
   cookies().delete('access_token');
-  redirect('/login');
+  redirect('/sign-in');
 }

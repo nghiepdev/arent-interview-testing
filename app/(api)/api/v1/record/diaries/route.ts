@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
     page,
     total: TOTAL,
     per_page: PER_PAGE,
-    data: Array.from({length: 8}).map((_, index) => ({
+    data: Array.from({length: PER_PAGE}).map((_, index) => ({
       date: dayjs()
         .subtract(1, 'year')
         .add(page + index, 'day')

@@ -19,10 +19,13 @@ export default function Login() {
     }
     startTransition(async () => {
       try {
-        await loginAction(values);
-      } catch {
+        const response = await loginAction(values);
+        if (response?.error === true) {
+          throw new Error(response.message);
+        }
+      } catch (error) {
         setError('root', {
-          message: 'Username or password is incorrect',
+          message: error instanceof Error ? error.message : 'Unknown error!',
         });
         setFocus('username');
       }
@@ -42,8 +45,9 @@ export default function Login() {
           id="username"
           type="text"
           placeholder="arent"
-          className="ring-gray-300 block w-full rounded-md border-0 px-2 py-2 shadow-sm ring-1 ring-inset"
+          className="block w-full rounded-md border-0 px-3 py-2 shadow-sm outline-none ring-1 aria-[invalid=true]:ring-primary-400 focus:ring-2"
           autoComplete="off"
+          aria-invalid={!!formState.errors.username}
           autoFocus
           {...register('username', {
             required: 'Username field is required',
@@ -66,8 +70,9 @@ export default function Login() {
           id="password"
           type="password"
           placeholder="arent"
-          className="ring-gray-300 block w-full rounded-md border-0 px-2 py-2 shadow-sm ring-1 ring-inset"
+          className="block w-full rounded-md border-0 px-3 py-2 shadow-sm outline-none ring-1 aria-[invalid=true]:ring-primary-400 focus:ring-2"
           autoComplete="off"
+          aria-invalid={!!formState.errors.password}
           {...register('password', {
             required: 'Password field is required',
           })}
