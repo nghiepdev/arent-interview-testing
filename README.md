@@ -19,7 +19,7 @@ Open `http://localhost:3000` with your browser to see the result.
 ## Overview
 
 This is a test that requires implementing front-end development based on a Figma design.  
-So there are 3 main pages: `/account/top`, `/account/record`, and `/columns`(public anyone).
+So there are 3 main pages: `/account/top`, `/account/my-record`, and `/columns`(public anyone).
 
 In addition, there are `/sign-in` and `/logout` pages to simulate the authentication feature.
 

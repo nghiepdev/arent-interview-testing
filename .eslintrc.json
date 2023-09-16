@@ -6,7 +6,7 @@
     "plugin:prettier/recommended"
   ],
   "ignorePatterns": [".next", "public"],
-  "plugins": ["simple-import-sort", "import"],
+  "plugins": ["simple-import-sort"],
   "rules": {
     "@next/next/no-img-element": "off",
     "simple-import-sort/imports": "warn",
