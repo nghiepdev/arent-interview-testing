@@ -7,6 +7,8 @@ const TOTAL = 40;
 const PER_PAGE = 8;
 const MAX_PAGE = Math.ceil(TOTAL / PER_PAGE);
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   // Fake delay
   await new Promise(r => setTimeout(r, randomArbitrary(300, 500)));

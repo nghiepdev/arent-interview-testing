@@ -8,6 +8,8 @@ const mockData = [
   [200, 180, 170, 140, 140, 120, 95, 90, 75, 70, 80, 90],
 ];
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   // Fake delay
   await new Promise(r => setTimeout(r, randomArbitrary(300, 500)));

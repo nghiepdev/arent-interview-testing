@@ -10,6 +10,8 @@ const mockData = [
   [200, 180, 170, 140, 140, 120, 95, 90, 75, 70, 80, 40],
 ];
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   const period = (request.nextUrl.searchParams.get('period') ||
     'year') as Period;

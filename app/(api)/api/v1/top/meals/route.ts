@@ -17,6 +17,8 @@ const MEALS = [
 ];
 const PHOTOS = ['d01', 'd02', 'l01', 'l02', 'l03', 'm01', 'm02', 'm03'];
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   // Fake delay
   await new Promise(r => setTimeout(r, randomArbitrary(300, 500)));
