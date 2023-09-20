@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     template: '%s | Healthy',
   },
   description: 'Your healthy life grow here.',
+  metadataBase: process.env.DETA_SPACE_APP_HOSTNAME
+    ? new URL(`https://${process.env.DETA_SPACE_APP_HOSTNAME}`)
+    : null,
   themeColor: [
     {
       media: '(prefers-color-scheme: light)',
