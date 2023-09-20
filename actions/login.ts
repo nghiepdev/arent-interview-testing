@@ -3,7 +3,7 @@
 import dayjs from 'dayjs';
 import {encode} from 'js-base64';
 import {cookies} from 'next/headers';
-import {redirect} from 'next/navigation';
+import {redirect, RedirectType} from 'next/navigation';
 
 import type {Credentials} from '@/lib/auth';
 
@@ -21,7 +21,7 @@ export async function loginAction(
       httpOnly: true,
       expires: dayjs().add(1, 'year').toDate(),
     });
-    redirect('/account/top');
+    redirect('/account/top', RedirectType.replace);
   }
 
   return {

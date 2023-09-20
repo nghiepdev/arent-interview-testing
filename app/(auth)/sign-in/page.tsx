@@ -1,5 +1,6 @@
 'use client';
 
+import {useRouter} from 'next/navigation';
 import {useTransition} from 'react';
 import {type SubmitHandler, useForm} from 'react-hook-form';
 
@@ -8,6 +9,7 @@ import {Button} from '@/components/ui';
 import type {Credentials} from '@/lib/auth';
 
 export default function Login() {
+  const router = useRouter();
   const [isSubmiting, startTransition] = useTransition();
 
   const {handleSubmit, register, formState, setError, setFocus} =
@@ -23,6 +25,7 @@ export default function Login() {
         if (response?.error === true) {
           throw new Error(response.message);
         }
+        router.replace('/account/top');
       } catch (error) {
         setError('root', {
           message: error instanceof Error ? error.message : 'Unknown error!',
