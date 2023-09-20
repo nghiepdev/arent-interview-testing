@@ -4,12 +4,10 @@ on:
   push:
     branches:
       - main
-      - develop
 
   pull_request:
     branches:
       - main
-      - develop
 
 jobs:
   lint:
@@ -22,14 +20,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          cache: 'pnpm'
       - name: Install dependencies
-        run: npm install --no-frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
       - name: Begin linting
-        run: npm run lint -- --max-warnings 0
+        run: pnpm lint --max-warnings 0
       - name: Type checking
         run: ./node_modules/.bin/tsc
