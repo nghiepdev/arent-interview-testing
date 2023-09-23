@@ -2,9 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   html {
     scroll-behavior: smooth;
+  }
+
+  @supports (-webkit-touch-callout: none) {
+    input {
+      font-size: max(16px);
+    }
+    input::placeholder {
+      font-size: max(14px);
+    }
   }
 }
