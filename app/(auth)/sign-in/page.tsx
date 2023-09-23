@@ -48,7 +48,7 @@ export default function Login() {
           id="username"
           type="text"
           placeholder="arent"
-          className="block w-full rounded-md border-0 px-3 py-2 shadow-sm outline-none ring-1 aria-[invalid=true]:ring-primary-400 focus:ring-2"
+          className="block w-full appearance-none rounded-md border-0 px-3 py-2 shadow-sm outline-none ring-1 aria-[invalid=true]:ring-primary-400 focus:ring-2"
           autoComplete="off"
           aria-invalid={!!formState.errors.username}
           autoFocus
@@ -73,7 +73,7 @@ export default function Login() {
           id="password"
           type="password"
           placeholder="arent"
-          className="block w-full rounded-md border-0 px-3 py-2 shadow-sm outline-none ring-1 aria-[invalid=true]:ring-primary-400 focus:ring-2"
+          className="block w-full appearance-none rounded-md border-0 px-3 py-2 shadow-sm outline-none ring-1 aria-[invalid=true]:ring-primary-400 focus:ring-2"
           autoComplete="off"
           aria-invalid={!!formState.errors.password}
           {...register('password', {
